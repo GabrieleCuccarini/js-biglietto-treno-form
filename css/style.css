@@ -11,7 +11,8 @@
 }
 
 .d-flex input, 
-.d-flex select {
+.d-flex select,
+.d-flex textarea {
     border-color: var(--pr-color);
     border-width: 1px;
 }
