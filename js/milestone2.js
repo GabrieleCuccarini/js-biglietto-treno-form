@@ -9,18 +9,10 @@ const genera = document.getElementById("generate")
 const carrozza = document.getElementById("rndm-numb-car")
 const codiceTicket = document.getElementById("rndm-numb-tick")
 
-let kmRequest = parseInt(kmDaPercorrere0 .value)
-let userAge = parseInt(userAge0.value)
-let prezzoDelBiglietto = kmRequest * 0.21
-
-passengerTicket.innerHTML = nameAndLast.value
-
-console.log(prezzoDelBiglietto, kmRequest)
-
 // CANCEL FUNCTION
 cancelButton.addEventListener("click", function() {
     nameAndLast.value = "";
-    kmRequest.value = "";
+    kmDaPercorrere0.value = "";
     userAge0.value = 0;
 });
 
@@ -29,14 +21,17 @@ genera.addEventListener("click", function () {
     // Random number generators
     carrozza.innerHTML =  Math.floor(Math.random() * 10) + 1;
     codiceTicket.innerHTML =  Math.floor(Math.random() * 100000) + 1;
+    let userAge = parseInt(userAge0.value)
+    let kmRequest = parseInt(kmDaPercorrere0.value)
+    let prezzoDelBiglietto = kmRequest * 0.21
 
-    if ( (parseInt(userAge === 1)) ) {
+    if ( userAge === 1 ) {
         let scontoMinorenni = prezzoDelBiglietto * 0.80 ;
         const prezzoScontato = scontoMinorenni.toFixed(2)
         console.log(prezzoScontato)
         prezzoMostrato.innerHTML = "€" + prezzoScontato
         typeOfTicket.innerHTML = "Biglietto scontato per minori"
-    } else if ( (parseInt(userAge === 3)) ) {
+    } else if ( userAge === 3) {
         let scontoOver = prezzoDelBiglietto * 0.60 ;
         const prezzoScontato = scontoOver.toFixed(2);
         console.log(prezzoScontato)
@@ -47,7 +42,8 @@ genera.addEventListener("click", function () {
         typeOfTicket.innerHTML = "Biglietto Standard"
     }
 
-    console.log(prezzoDelBiglietto, kmRequest)
+    passengerTicket.innerHTML = nameAndLast.value
+    console.log(userAge, userAge0, kmDaPercorrere0.value, kmRequest,prezzoDelBiglietto)
 })
 
 // if ( isNaN( kmDaPercorrere )) {
