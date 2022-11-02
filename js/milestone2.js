@@ -8,12 +8,18 @@ const cancelButton = document.getElementById("cancel")
 const genera = document.getElementById("generate")
 const carrozza = document.getElementById("rndm-numb-car")
 const codiceTicket = document.getElementById("rndm-numb-tick")
+const hideTitle = document.getElementById("hide1")
+const hideTicket = document.getElementById("hide2")
+
 
 // CANCEL FUNCTION
 cancelButton.addEventListener("click", function() {
     nameAndLast.value = "";
     kmDaPercorrere0.value = "";
     userAge0.value = 0;
+
+    hideTitle.classList.add("d-none");
+    hideTicket.classList.add("d-none");
 });
 
 // GENERATE FUNCTION
@@ -21,8 +27,11 @@ genera.addEventListener("click", function () {
     // Random number generators
     carrozza.innerHTML =  Math.floor(Math.random() * 10) + 1;
     codiceTicket.innerHTML =  Math.floor(Math.random() * 100000) + 1;
+    
+    // Dati compilati dall'utente
     let userAge = parseInt(userAge0.value)
     let kmRequest = parseInt(kmDaPercorrere0.value)
+
     let prezzoDelBiglietto = kmRequest * 0.21
 
     if ( isNaN( kmRequest )) {
