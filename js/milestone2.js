@@ -25,6 +25,10 @@ genera.addEventListener("click", function () {
     let kmRequest = parseInt(kmDaPercorrere0.value)
     let prezzoDelBiglietto = kmRequest * 0.21
 
+    if ( isNaN( kmRequest )) {
+    alert( "Il numero inserito non è valido. Per favore inserisci un numero valido" );
+    }
+
     if ( userAge === 1 ) {
         let scontoMinorenni = prezzoDelBiglietto * 0.80 ;
         const prezzoScontato = scontoMinorenni.toFixed(2)
@@ -38,7 +42,7 @@ genera.addEventListener("click", function () {
         prezzoMostrato.innerHTML = "€" + prezzoScontato
         typeOfTicket.innerHTML = "Biglietto scontato per over 65"
     } else {
-        prezzoMostrato.innerHTML = "€" + prezzoDelBiglietto
+        prezzoMostrato.innerHTML = "€" + prezzoDelBiglietto.toFixed(2)
         typeOfTicket.innerHTML = "Biglietto Standard"
     }
 
@@ -46,6 +50,3 @@ genera.addEventListener("click", function () {
     console.log(userAge, userAge0, kmDaPercorrere0.value, kmRequest,prezzoDelBiglietto)
 })
 
-// if ( isNaN( kmDaPercorrere )) {
-//     alert( "Il numero inserito non è valido" );
-// }
